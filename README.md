@@ -42,7 +42,7 @@ RESET_TOKEN_EXPIRY_MINUTES=10
 ## Run Locally
 
 ```bash
-git clone https://github.com/yourusername/auth-system.git
+git clone https:https://github.com/ShIreen66/auth-assignment.git
 cd auth-system/backend
 npm install
 npm run dev
