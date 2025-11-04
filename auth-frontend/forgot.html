@@ -1,31 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Forgot Password</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
-  <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-    <h1 class="text-2xl font-bold mb-6 text-center">Forgot Password</h1>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center px-4">
+  <div class="bg-white w-full max-w-md p-8 rounded-xl shadow-lg">
+    <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6">
+      Forgot Password
+    </h1>
 
     <div id="message" class="mb-4 text-center text-sm"></div>
 
     <form id="forgotForm" class="space-y-4">
-      <input type="email" id="email" placeholder="Enter your email" required class="w-full border rounded px-3 py-2 focus:outline-none focus:ring" />
-      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+        required
+        class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+
+      <button
+        type="submit"
+        class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200 font-medium"
+      >
         Send Reset Link
       </button>
     </form>
 
-    <div class="text-center mt-4">
-      <a href="index.html" class="text-blue-500 hover:underline text-sm">Back to Login</a>
+    <div class="text-center mt-5">
+      <a href="index.html" class="text-blue-600 hover:underline text-sm">
+        Back to Login
+      </a>
     </div>
   </div>
 
   <script>
-    const BASE_URL = "http://localhost:4000/api"; 
+    
+    const BASE_URL = "https://auth-assignment-xng1.onrender.com/api";
 
     const form = document.getElementById("forgotForm");
     const msg = document.getElementById("message");
@@ -33,6 +49,7 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       msg.textContent = "";
+      msg.className = "text-sm mb-4 text-center";
 
       const email = document.getElementById("email").value;
 
@@ -42,12 +59,20 @@
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email }),
         });
+
         const data = await res.json();
-        msg.className = "text-green-600 mb-4";
-        msg.textContent = "Reset link sent (check server console).";
-      } catch {
-        msg.className = "text-red-600 mb-4";
-        msg.textContent = "Server error.";
+
+        if (res.ok) {
+          msg.classList.add("text-green-600");
+          msg.textContent = "Reset link sent successfully (check backend console).";
+          form.reset();
+        } else {
+          msg.classList.add("text-red-600");
+          msg.textContent = data.message || "Unable to send reset link.";
+        }
+      } catch (error) {
+        msg.classList.add("text-red-600");
+        msg.textContent = "Server error. Please try again later.";
       }
     });
   </script>

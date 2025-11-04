@@ -62,5 +62,6 @@ Deployment
 
 Backend deployed on **Render**.  
 Live URL:  
-https://shireen-auth-system.onrender.com/api
+https://auth-assignment-xng1.onrender.com/api
+
 

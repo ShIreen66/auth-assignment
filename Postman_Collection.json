@@ -1,11 +1,3 @@
----
-
-##  **Postman_Collection.json (Final — Copy and Save as File)**
-
-Create a new file named **`Postman_Collection.json`** in the project root,  
-then paste this JSON inside 👇
-
-```json
 {
   "info": {
     "name": "Auth System API Collection",
@@ -26,10 +18,9 @@ then paste this JSON inside 👇
           "raw": "{\n  \"name\": \"Shireen\",\n  \"email\": \"shireen@example.com\",\n  \"password\": \"password123\"\n}"
         },
         "url": {
-          "raw": "http://localhost:4000/api/register",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "https://auth-assignment-xng1.onrender.com/api/register",
+          "protocol": "https",
+          "host": ["auth-assignment-xng1", "onrender", "com"],
           "path": ["api", "register"]
         }
       }
@@ -46,10 +37,9 @@ then paste this JSON inside 👇
           "raw": "{\n  \"email\": \"shireen@example.com\",\n  \"password\": \"password123\"\n}"
         },
         "url": {
-          "raw": "http://localhost:4000/api/login",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "https://auth-assignment-xng1.onrender.com/api/login",
+          "protocol": "https",
+          "host": ["auth-assignment-xng1", "onrender", "com"],
           "path": ["api", "login"]
         }
       }
@@ -66,10 +56,9 @@ then paste this JSON inside 👇
           "raw": "{\n  \"email\": \"shireen@example.com\"\n}"
         },
         "url": {
-          "raw": "http://localhost:4000/api/forgot-password",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "https://auth-assignment-xng1.onrender.com/api/forgot-password",
+          "protocol": "https",
+          "host": ["auth-assignment-xng1", "onrender", "com"],
           "path": ["api", "forgot-password"]
         }
       }
@@ -86,10 +75,9 @@ then paste this JSON inside 👇
           "raw": "{\n  \"newPassword\": \"newpass123\",\n  \"confirmPassword\": \"newpass123\"\n}"
         },
         "url": {
-          "raw": "http://localhost:4000/api/reset-password/{{token}}",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "https://auth-assignment-xng1.onrender.com/api/reset-password/{{token}}",
+          "protocol": "https",
+          "host": ["auth-assignment-xng1", "onrender", "com"],
           "path": ["api", "reset-password", "{{token}}"]
         }
       }
@@ -102,10 +90,9 @@ then paste this JSON inside 👇
           { "key": "Authorization", "value": "Bearer {{jwt_token}}", "type": "text" }
         ],
         "url": {
-          "raw": "http://localhost:4000/api/profile",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "https://auth-assignment-xng1.onrender.com/api/profile",
+          "protocol": "https",
+          "host": ["auth-assignment-xng1", "onrender", "com"],
           "path": ["api", "profile"]
         }
       }
